@@ -8,7 +8,18 @@ from mavros_msgs.msg import State
 
 class Drone:
 	""" Class that abstracts the drone control mechanisms """
+	
+	def state_cb(updated_state):
+		self.current_state = updated_state
+		pass
+
 	def __init__(self):
+		# Define state variable
+		self.current_state = State()
+		self.offb_set_mode = SetMode()
+		self.arm_cmd = CommandBool()
+
+		# Start node
 		rospy.init_node('offb_node_python', anonymous = True)
 		
 		# Subscribe/Publish to relavant channels
@@ -28,3 +39,16 @@ class Drone:
 			self.set_mode_client = rospy.ServicepROXY('mavros/setmode', SetMode)
 		except rospy.ServiceException, e:
 			rospy.logerr("Service Call failed: %s", e)
+
+		# Set rate for ROS
+		# self.rate = rospy.Rate(20.0)
+
+	def arm(self):
+		pass
+
+	def disarm(self):
+		pass
+
+	def setMode(self);
+		pass
+
