@@ -1,37 +1,39 @@
 {
-    stages: {
-        begin: {
-            type: "boolean",
-            node: "/some-button",
-            param: "pressed",
-            value: true,
-            then: {
-                twist: {
-                    weight: 1,
-                    linear: {
-                        z: 1,
-                    },
-                },
-            },
+    "stages": [
+        {
+            "name" : "begin",
+            "type": "boolean",
+            "node": "/some-button",
+            "param": "pressed",
+            "value": true,
+            "then": {
+                "twist": {
+                    "weight": 1,
+                    "linear": {
+                        "z": 1
+                    }
+                }
+            }
         },
-        height_ok: {
-            type: "range",
-            node: "/mavros/global_position/rel_alt",
-            param: "data",
-            min: 1,
-            max: 1.6,
-            then: {
-                twist: {
-                    weight: 1,
-                    linear: {
-                        x: 2,
-                        y: 1,
-                    },
+        {
+            "name" : "height_ok",
+            "type": "range",
+            "node": "/mavros/global_position/rel_alt",
+            "param": "data",
+            "min": 1,
+            "max": 1.6,
+            "then": {
+                "twist": {
+                    "weight": 1,
+                    "linear": {
+                        "x": 2,
+                        "y": 1
+                    }
                 },
-                find_cross: {
-                    weight: 1,
-                },
-            },
-        },
-    }
+                "find_cross": {
+                    "weight": 1
+                }
+            }
+        }
+    ]
 }
