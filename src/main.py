@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import rospy
-from autoforce_mixer.msg import NodeWeightArray
+from autoforce_mixer.msg import NodeWeightArray, NodeWeight
 import json
 
 results = None
@@ -19,10 +19,21 @@ def main():
 		while current_stage < len(stages):
 			stage = stages[current_stage]
 			sub = rospy.Subscribe(stage['node'])
+			out = []
+			nodes = stage["then"]
+			for node in nodes.keys():
+				if node == "twist":
+					
 			while True:
 				if results = None:
 					continue
-				##check ifs
+				if stage["type"] == "boolean":
+					if results == stage["value"]:
+						pub.
+						break
+				if stage["type"] == "range":
+					if stage["min"] < results < stage["max"]:
+						break
 				rate.sleep()
 			sub.shutdown()
 			rate.sleep()
