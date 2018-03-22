@@ -35,13 +35,23 @@ def main():
 					continue
 				if stage["type"] == "boolean":
 					if results == stage["value"]:
-						pub.publish(NodeWeightArray(out))
 						break
 				if stage["type"] == "range":
 					if stage["min"] < results < stage["max"]:
-						pub.publish(NodeWeightArray(out))
 						break
 				rate.sleep()
+			pub.publish(NodeWeightArray(out))
+			if "twist" in nodes and "object" in nodes["twist"]:
+				twist = Twist()
+				params = node["twist"]["object"]
+				twist.linear.x = params["linear"]["x"]
+				twist.linear.y = params["linear"]["y"]
+				twist.linear.z = params["linear"]["z"]
+				twist.angular.x = params["angular"]["x"]
+				twist.angular.y = params["angular"]["y"]
+				twist.angular.z = params["angular"]["z"]
+				pub_constants.publish(twist)
+							
 			sub.shutdown()
 			rate.sleep()
 
