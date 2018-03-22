@@ -9,8 +9,17 @@
             "then": {
                 "twist": {
                     "weight": 1,
-                    "linear": {
-                        "z": 1
+                    "object" : {
+                        "linear": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 1
+                        },
+                        "angular": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
                     }
                 }
             }
@@ -25,9 +34,17 @@
             "then": {
                 "twist": {
                     "weight": 1,
-                    "linear": {
-                        "x": 2,
-                        "y": 1
+                    "object" : {
+                        "linear": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 0
+                        },
+                        "angular": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
                     }
                 },
                 "find_cross": {
