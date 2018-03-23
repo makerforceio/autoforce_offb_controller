@@ -3,7 +3,7 @@
         {
             "name" : "begin",
             "type": "boolean",
-            "node": "/some-button",
+            "node": "/some_button",
             "param": "pressed",
             "value": true,
             "then": {
